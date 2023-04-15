@@ -3,10 +3,9 @@ const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const mongoString = process.env.DATABASE_URL;
 
-mongoose.connect(
-  "mongodb+srv://Mostafa_Fathi_1:MosNou%40121212@cluster0.iyhhvp2.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(mongoString);
 mongoose.connection.once("open", () => {
   console.log("Connected to Database");
 });
